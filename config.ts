@@ -19,11 +19,11 @@ export const feeds = [
       link: item.link,
     }),
     latest: async (item: Item, mark: boolean) => {
-      if (await wasSent(item.guid!)) {
+      if (await wasSent("zssk", item.guid!)) {
         return false;
       }
 
-      if (mark) await markAsSent(item.guid!);
+      if (mark) await markAsSent("zssk", item.guid!);
 
       return true;
     },
