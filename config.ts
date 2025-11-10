@@ -18,12 +18,13 @@ export const feeds = [
       description: item.contentSnippet,
       link: item.link,
     }),
-    latest: async (item: Item) => {
+    latest: async (item: Item, mark: boolean) => {
       if (await wasSent(item.guid!)) {
         return false;
       }
 
-      await markAsSent(item.guid!);
+      if (mark) await markAsSent(item.guid!);
+
       return true;
     },
   }),

@@ -10,7 +10,7 @@ export interface Feed<T> {
   cron: string;
   webhooks: Webhook<T>[];
   fetch: (item: Item) => T;
-  latest?: (item: Item) => Promise<boolean> | boolean;
+  latest?: (item: Item, mark: boolean) => Promise<boolean> | boolean;
 }
 
 export function createFeed<T>(config: Feed<T>): Feed<T> {
