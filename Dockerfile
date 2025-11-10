@@ -2,6 +2,8 @@ FROM oven/bun:latest
 
 RUN apt-get update -qq
 
+WORKDIR /app
+
 COPY package.json ./
 COPY tsconfig.json ./
 COPY config.default.ts ./config.ts
